@@ -1,0 +1,18 @@
+<mat-toolbar class="nav-bar">
+  <img class="text-black" alt="General Authority of Customs logo" priority="priority"
+    ngSrc="assets/images/main-logo.ico" width="133" height="75" />
+  <!-- <span>TradeLocker</span> -->
+  <div class="ml-10">
+    <app-select [options]="options"></app-select>
+  </div>
+  <div>
+    <span class="text-secondary-light ml-10 text-base">Balance:</span>
+    <span class="text-xs ml-1">{{balance}}</span>
+  </div>
+  <span class="example-spacer"></span>
+  <span class="mr-2 text-base text-secondary-light">Welcome</span>
+  <span class="text-sm text-secondary-light">{{userName}}</span>
+  <button (click)="authService.logout()" mat-icon-button class="logout-icon" aria-label="Example icon-button with share icon">
+    <mat-icon class="logout-icon">logout</mat-icon>
+  </button>
+</mat-toolbar>

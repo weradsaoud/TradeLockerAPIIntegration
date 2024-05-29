@@ -1,0 +1,41 @@
+<div
+  class="text-white h-full w-full relative items-center justify-center flex flex-col rtl:bg-gradient-to-br ltr:bg-gradient-to-bl from-primary to-primary-dark overflow-hidden">
+  <div class="rotated-background z-0"></div>
+  <!-- <object data="assets/images/bg.svg"
+    class="absolute pointer-events-none bottom-0 w-screen object-cover mix-blend-color-dodge opacity-30">
+    image
+  </object> -->
+  <div class="flex flex-col-reverse lg:flex-row relative w-full z-1">
+    <div id="form" class="z-10 justify-center flex flex-auto">
+      <div class="flex flex-col w-1/2 lg:-mt-20">
+        <h1 class="text-center text-secondary-dark text-2xl border-b-4 p-4 border-secondary mb-4">
+          Login
+        </h1>
+        <form [formGroup]="form" autocomplete="off">
+          <app-input formControlName="email" labelColor="text-white" class="mt-4" placeholder="user email"
+            label="User Email" />
+          <app-input formControlName="password" labelColor="text-white" placeholder="password"
+            [type]="selectedPasswordOptions.inputType" label="Password">
+            <button appInputSuffix type="button" (click)="toggleEye()"
+              class="mx-2 outline-offset-4 outline-primary flex items-center justify-center">
+              <mat-icon [svgIcon]="selectedPasswordOptions.icon"></mat-icon>
+            </button>
+          </app-input>
+          <app-input formControlName="server" labelColor="text-white" class="mt-4" placeholder="server"
+          label="Server" />
+          <app-button (click)="login$.next()" buttonType="secondary" class="block mt-8">
+            Login
+          </app-button>
+        </form>
+      </div>
+    </div>
+    <div id="logo" class="z-10 flex-auto flex flex-col items-center justify-center">
+      <!--suppress CheckImageSize -->
+      <img class="text-black" alt="General Authority of Customs logo" priority="priority" ngSrc="assets/images/main-logo.ico" width="133"
+        height="75" />
+      <h6 class="text-secondary-light p-2">
+        Build the <span class="text-purple-500">next-gen</span> trading platform with us.
+      </h6>
+    </div>
+  </div>
+</div>

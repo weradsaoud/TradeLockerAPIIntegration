@@ -1,0 +1,22 @@
+.card-style{
+    max-width: 600px;
+    padding: 10px;
+    height: calc(100vh - 64px); 
+    overflow-y: auto; 
+      /* Smoother Scrolling (Optional) */
+  &::-webkit-scrollbar { /* Chrome and Safari */
+    width: 0px;
+    background: transparent;
+  }
+
+  &::-moz-scrollbar { /* Firefox */
+    width: 2px;
+    background: transparent;
+  }
+}
+.limited-td {
+  max-width: 200px !important;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

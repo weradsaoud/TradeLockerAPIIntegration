@@ -1,0 +1,53 @@
+<mat-card class="instruments-card-style">
+  <mat-card-header>
+    <mat-card-title>Place Your Order</mat-card-title>
+  </mat-card-header>
+  <mat-divider></mat-divider>
+  <mat-card-content>
+    <div class="dialog-content">
+      <ng-container [formGroup]="form">
+        <div class="grid grid-cols-2 gap-4">
+
+          <app-input formControlName="price" label="Price" [disabled]="(loadingService.loading$ | async)!"></app-input>
+
+          <app-input formControlName="qty" label="QTy" [disabled]="(loadingService.loading$ | async)!"></app-input>
+
+          <app-select-input class="col-span-1" [disabled]="(loadingService.loading$ | async)!" formControlName="routeId"
+            [options]="routIdList" label="Rout" bindValue="value" [isMultiple]="false" />
+
+          <app-select-input class="col-span-1" [disabled]="(loadingService.loading$ | async)!" formControlName="side"
+            [options]="sideList" label="Side" bindValue="value" [isMultiple]="false" />
+
+          <app-input formControlName="stopLoss" label="Stop Loss Amount"
+            [disabled]="(loadingService.loading$ | async)!"></app-input>
+
+          <app-select-input class="col-span-1" [disabled]="(loadingService.loading$ | async)!"
+            formControlName="stopLossType" [options]="stopLossTypeList" label="Stop Loss Type" bindValue="value"
+            [isMultiple]="false" />
+
+          <app-input formControlName="stopPrice" label="Stop Price"
+            [disabled]="(loadingService.loading$ | async)!"></app-input>
+
+          <app-input formControlName="takeProfit" label="Take Profit"
+            [disabled]="(loadingService.loading$ | async)!"></app-input>
+
+          <app-select-input class="col-span-1" [disabled]="(loadingService.loading$ | async)!"
+            formControlName="takeProfitType" [options]="takeProfitTypeList" label="Take Profit Type" bindValue="value"
+            [isMultiple]="false" />
+
+          <app-input formControlName="trStopOffset" label="Trailling Stop Offset"
+            [disabled]="(loadingService.loading$ | async)!"></app-input>
+
+          <app-select-input class="col-span-1" [disabled]="(loadingService.loading$ | async)!" formControlName="type"
+            [options]="typeList" label="Order Type" bindValue="value" [isMultiple]="false" />
+
+          <app-select-input class="col-span-1" [disabled]="(loadingService.loading$ | async)!" formControlName="validity"
+            [options]="validityList" label="Validity" bindValue="value" [isMultiple]="false" />
+        </div>
+      </ng-container>
+    </div>
+    <div class="card-footer justify-end">
+      <app-button (click)="save$.next()" buttonType="primary">Order</app-button>
+    </div>
+  </mat-card-content>
+</mat-card>

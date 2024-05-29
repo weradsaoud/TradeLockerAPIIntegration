@@ -1,0 +1,35 @@
+.instruments-card-style{
+    max-width: 500px;
+    padding: 10px;
+    height: calc(100vh - 64px); 
+    overflow-y: auto; 
+      /* Smoother Scrolling (Optional) */
+  &::-webkit-scrollbar { /* Chrome and Safari */
+    width: 0px;
+    background: transparent;
+  }
+
+  &::-moz-scrollbar { /* Firefox */
+    width: 2px;
+    background: transparent;
+  }
+}
+.demo-table {
+    width: 100%;
+  }
+  
+  .mat-mdc-row .mat-mdc-cell {
+    border-bottom: 5px solid transparent;
+    
+    cursor: pointer;
+  }
+  
+  .mat-mdc-row:hover .mat-mdc-cell {
+    border-color: currentColor;
+  }
+  
+  .demo-row-is-clicked {
+    font-weight: 900; /* Very bold */
+    font-style: italic; /* Italic */
+    color: #d0a239; /* Golden yellow color */
+  }

@@ -1,0 +1,24 @@
+.card-content {
+    @apply p-4 flex flex-col overflow-y-auto;
+  }
+
+.instruments-card-style{
+    max-width: 500px;
+    padding: 10px;
+    height: calc(100vh - 64px); 
+    overflow-y: auto; 
+      /* Smoother Scrolling (Optional) */
+  &::-webkit-scrollbar { /* Chrome and Safari */
+    width: 0px;
+    background: transparent;
+  }
+
+  &::-moz-scrollbar { /* Firefox */
+    width: 2px;
+    background: transparent;
+  }
+}
+
+.card-footer {
+  @apply border border-t p-4 space-x-4 rtl:space-x-reverse flex;
+}

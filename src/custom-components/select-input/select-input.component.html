@@ -1,0 +1,45 @@
+<label (click)="delegateFocus()" [for]="name" [ngClass]="{
+    'has-error': !!(errors | async) && displayErrors,
+    nullable: nullable()
+  }" class="group block relative {{ !noMargin ? marginBottom : '' }} {{
+    disabled ? 'disabled' : ''
+  }}">
+  <span [ngClass]="labelColor" class="block font-medium">{{ label }}
+    @if (isRequired) {
+    <span class="text-amber-700">*</span>
+    }
+  </span>
+  <div [ngClass]="size" class="group/input-wrapper input-form {{
+      inputColor
+    }} flex items-center relative justify-start">
+    <ng-content select="[appInputPrefix]"></ng-content>
+    <span [ngClass]="{ prefix: inputPrefix, suffix: inputSuffix }"
+      class="peer absolute hidden pointer-events-none"></span>
+    <mat-select #selectInput class="flex-auto w-0" [placeholder]="placeholder" [formControl]="control"
+      (blur)="inputTouch()" [id]="name" [ngClass]="tailwindClass" [multiple]="isMultiple">
+      @if (enableFilter) {
+      <div class="px-2 pb-2">
+        <app-input [formControl]="filterControl" label="" [displayErrors]="false" [noMargin]="true"
+          placeholder="filter">
+          <mat-icon appInputSuffix class="mx-1 !h-10" svgIcon="magnify"></mat-icon>
+        </app-input>
+      </div>
+      }
+      @for (
+      option of options | FilterArray: bindFilter : (filterTxt$ | async);
+      track option
+      ) {
+      <ng-container [ngTemplateOutlet]="optionTemplate?.templateRef || defaultTemplate"
+        [ngTemplateOutletContext]="{ $implicit: option }"></ng-container>
+      }
+      <ng-template #defaultTemplate let-option>
+        <mat-option [ngClass]="{ 'custom-divider': divider }" [value]="option.value">{{ option.viewValue }}
+        </mat-option>
+      </ng-template>
+    </mat-select>
+    @if (!isRequired && control.value && nullable()) {
+    <mat-icon class="me-2" (click)="delete($event, control.value)" svgIcon="close"></mat-icon>
+    }
+    <ng-content select="[appInputSuffix]"></ng-content>
+  </div>
+</label>
